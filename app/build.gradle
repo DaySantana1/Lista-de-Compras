@@ -1,0 +1,104 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'br.com.fiap.listadecompras'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "br.com.fiap.listadecompras"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.3.2'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.activity:activity-compose:1.5.1'
+    implementation platform('androidx.compose:compose-bom:2022.10.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    /**
+     * Implementação de dependência do módulo ui-graphics do Jetpack compose
+     * (Desenvolvimento de interfaces UI - android Kotlin)
+     * O ui-graphics contém componentes relacionados à manipulação gráfica
+     */
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    /**
+     * Implementação de dependência do módulo ui-tooling-preview do Jetpack Compose.
+     * Ferramenta para ajudar no processo de criação e teste de UI com Jetpack Compose.
+     * Usado durante o desenvolvimento para visualização do projeto
+     */
+    implementation 'androidx.compose.material3:material3'
+    /**
+     * Implementação de dependência do módulo material3 do Jetpack Compose.
+     * Oferece implementações de componentes de Material Design para uso com Jetpack Compose.
+     * Seguindo as diretrizes de design do Material Design.
+     */
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    /**
+     * Implementação de dependência para a RecyclerView
+     * Exibição de conjuntos de dados, em layouts de lista,
+     * com adaptabilidade de tela e layout flexível.
+     * Implementar listas nos Apps.
+     */
+    testImplementation 'junit:junit:4.13.2'
+    /**
+     * Implementação de dependência do JUnit para testes unitários.
+     * O JUnit é um framework de teste que é comumente usado para
+     * escrever testes unitários para código Java.
+     */
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    /**
+     * Implementação de dependência do JUnit para testes unitários que
+     * interagem diretamente com o ambiente do Android.
+     * Facilitar a escrita e  execução de testes no Android.
+     */
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    /**
+     * Implementação de dependência do Espresso para testes de UI do Android.
+     * O Espresso é um framework de teste para escrever e executar testes de UI no Android.
+     * Simula interações do usuário e verifica o comportamento da UI através dessas simulações.
+     */
+    androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+}
